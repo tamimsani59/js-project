@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Finding the longest word in a string using JavaScript</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta https-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="center-center">
+    <span>( Finding the longest Country Name using JavaScript )</span>
+    <h1 id="string">'India', 'United-States-of-America', 'Portugal'</h1>
+    <button id="string_check" onclick="onbtnclick()">Click me</button>
+  </div>
+  <script type="text/javascript">
+    function onbtnclick() {
+      document.getElementById("string_check").disabled = true;
+
+      const str = document.getElementById("string").textContent;
+      const findLongest = (str = '') => {
+        const strArr = str.split(' ');
+        const word = strArr.reduce((acc, val) => {
+          let { length: len } = acc;
+          if (val.length > len) {
+            acc = val;
+          };
+          return acc;
+        }, '');
+        return word;
+      };
+      function matchString() {
+        var string = str;
+        var result = string.match(findLongest(str));
+        document.getElementById('string').innerHTML = 'Output: ' + '{ ' + result + ' }';
+      } matchString()
+    }
+  </script>
+</body>
+
+</html>
